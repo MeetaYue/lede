@@ -175,7 +175,6 @@ jobs:
           CONFIG_PACKAGE_luci-app-unblockmusic=y
           CONFIG_PACKAGE_luci-app-vsftpd=y
           CONFIG_PACKAGE_luci-app-wol=y
-          CONFIG_PACKAGE_luci-app-firewall=y
           CONFIG_PACKAGE_luci-app-watchcat=y
           CONFIG_PACKAGE_luci-app-ramfree=y
           EOF
@@ -203,6 +202,11 @@ jobs:
           cat >> .config <<EOF
           # CONFIG_TARGET_IMAGES_PAD is not set
           # CONFIG_VMDK_IMAGES is not set
+          EOF
+
+          cat >> .config <<EOF
+          CONFIG_TARGET_KERNEL_PARTSIZE=60
+          CONFIG_TARGET_ROOTFS_PARTSIZE=600
           EOF
 
           # 
